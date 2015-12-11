@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dating Website</title>
+    </head>
+    <body>
+        <h1>Please Enter Your Details For Our Dating Website!</h1>
+        <form action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php"
+            method="get"
+            enctype="multipart/form-data">
+            <fieldset>
+                <legend>Your face</legend>
+                <label for="avatar">Your image:</label> <input type="file" id="avatar" name="avatar" required> <br>
+                <label for="preview">Image preview:</label> <img id="preview">
+            </fieldset>
+            <fieldset>
+                <legend>Your general details</legend>
+                <label for="name">Name:</label> <input type="text" id="name" name="name" required> <br>
+                <label for="gender">Gender:</label>
+                    <input type="radio" id="gender" name="gender" value="male" required>Male
+                    <input type="radio" id="gender" name="gender" value="female" required>Female <br>
+                <label for="age">Age:</label> <input type="number" id="age" name="age" required> <br>
+                <label for="dob">Date of birth:</label> <input type="date" id="dob" name="dob"> <br>
+                <label for="favorite_color">Favorite color:<label> <input type="color" id="favorite_color" name="favorite_color"> <br>
+                <label for="country">Which country:</label>
+                    <select id="country" name="country">
+                        <option value="no_selection">No selection</option>
+                        <option value="China">China</option>
+                        <option value="United_States">United States</option>
+                        <option value="Russia">Russia</option>
+                        <option value="United_Kindom">United Kindom</option>
+                        <option value="France">France</option>
+                    </select>
+            </fieldset>
+            <fieldset>
+                <legend>Your indicators</legend>
+                <label for="height">Height: Short</label> <input type="range" min="0" max="100" id="height" name="height">Tall <br>
+                <label for="salary">Salary: Poor</label> <input type="range" min="0" max="100" id="salary" name="salary">Rich
+            </fieldset>
+            <fieldset>
+                <legend>Your Contact Information</legend>
+                <label for="email">Email:</label> <input type="email" id="email" name="email" required> <br>
+                <label for="mobile">Mobile:</label> <input type="tel" id="mobile" name="mobile"> <br>
+                <label for="address">Address:</label> <textarea rows="3" cols="30" id="address" name="address"></textarea> <br>
+                <label for="contact_method">Method to contact you:</label>
+                    <input type="checkbox" id="contact_method" name="contact_method" value="email">Email
+                    <input type="checkbox" id="contact_method" name="contact_method" value="whatsapp">Whatsapp
+                    <input type="checkbox" id="contact_method" name="contact_method" value="inappchat">In-app chat
+            </fieldset>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
