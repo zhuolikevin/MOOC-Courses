@@ -2,6 +2,16 @@
 <html>
     <head>
         <title>Dating Website</title>
+        <style>
+            body {font-family: sans-serif}
+            fieldset {background: lightyellow; margin-bottom:10px; border: 10px solid yellow; width: 720px}
+            label {width: 180px; display: inline-block; text-align: right; vertical-align: top}
+            textarea {width: 360px; height: 50px}
+            .autoWidth {width: auto}
+            .rangeText {text-align: center; width: 70px; color: white}
+            .redbg {background: red}
+            .purplebg {background: purple}
+        </style>
     </head>
     <body>
         <h1>Please Enter Your Details For Our Dating Website!</h1>
@@ -17,8 +27,8 @@
                 <legend>Your general details</legend>
                 <label for="name">Name:</label> <input type="text" id="name" name="name" required> <br>
                 <label for="gender">Gender:</label>
-                    <input type="radio" id="gender" name="gender" value="male" required>Male
-                    <input type="radio" id="gender" name="gender" value="female" required>Female <br>
+                    <input type="radio" id="gender" name="gender" value="male" class="autoWidth" required>Male
+                    <input type="radio" id="gender" name="gender" value="female" class="autoWidth" required>Female <br>
                 <label for="age">Age:</label> <input type="number" id="age" name="age" required> <br>
                 <label for="dob">Date of birth:</label> <input type="date" id="dob" name="dob"> <br>
                 <label for="favorite_color">Favorite color:<label> <input type="color" id="favorite_color" name="favorite_color"> <br>
@@ -35,9 +45,13 @@
             <fieldset>
                 <legend>Your indicators</legend>
                 <label for="height">Height:</label>
-                    <label>Short</label> <input type="range" min="0" max="100" id="height" name="height"> <label>Tall</label> <br>
+                    <label class="rangeText redbg">Short</label>
+                        <input type="range" min="0" max="100" id="height" name="height">
+                    <label class="rangeText purplebg">Tall</label> <br>
                 <label for="salary">Salary:</label>
-                    <label>Poor</label> <input type="range" min="0" max="100" id="salary" name="salary"> <lebel>Rich</label>
+                    <label class="rangeText redbg">Poor</label>
+                        <input type="range" min="0" max="100" id="salary" name="salary">
+                    <label class="rangeText purplebg">Rich</label> <br>
             </fieldset>
             <fieldset>
                 <legend>Your Contact Information</legend>
@@ -45,9 +59,9 @@
                 <label for="mobile">Mobile:</label> <input type="tel" id="mobile" name="mobile"> <br>
                 <label for="address">Address:</label> <textarea rows="3" cols="30" id="address" name="address"></textarea> <br>
                 <label for="contact_method">Method to contact you:</label>
-                    <input type="checkbox" id="contact_method" name="contact_method" value="email">Email
-                    <input type="checkbox" id="contact_method" name="contact_method" value="whatsapp">Whatsapp
-                    <input type="checkbox" id="contact_method" name="contact_method" value="inappchat">In-app chat
+                    <input type="checkbox" id="contact_method" name="contact_method" value="email" class="autoWidth" >Email
+                    <input type="checkbox" id="contact_method" name="contact_method" value="whatsapp" class="autoWidth" >Whatsapp
+                    <input type="checkbox" id="contact_method" name="contact_method" value="inappchat" class="autoWidth" >In-app chat
             </fieldset>
             <input type="submit" value="Submit">
         </form>
