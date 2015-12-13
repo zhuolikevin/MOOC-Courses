@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+    <title>Color Guessing Game</title>
+    <script>
+        var all_colors
+            = ['aliceblue', 'antiquewhite', 'aqua', 'aquamarine', 'azure', 'beige',
+                'bisque', 'black', 'blanchedalmond', 'blue', 'blueviolet', 'brown',
+                'burlywood', 'cadetblue', 'chartreuse', 'chocolate', 'coral',
+                'cornflowerblue', 'cornsilk', 'crimson', 'cyan', 'darkblue', 'darkcyan',
+                'darkgoldenrod', 'darkgray', 'darkgreen', 'darkkhaki', 'darkmagenta',
+                'darkolivegreen', 'darkorange', 'darkorchid', 'darkred', 'darksalmon',
+                'darkseagreen', 'darkslateblue', 'darkslategray', 'darkturquoise',
+                'darkviolet', 'deeppink', 'deepskyblue', 'dimgray', 'dodgerblue',
+                'firebrick', 'floralwhite', 'forestgreen', 'fuchsia', 'gainsboro',
+                'ghostwhite', 'gold', 'goldenrod', 'gray', 'green', 'greenyellow',
+                'honeydew', 'hotpink', 'indianred', 'indigo', 'ivory', 'khaki',
+                'lavender', 'lavenderblush', 'lawngreen', 'lemonchiffon', 'lightblue',
+                'lightcoral', 'lightblue', 'lightcoral', 'lightcyan', 'lightgoldenrodyellow',
+                'lightgray', 'lightgreen', 'lightpink', 'lightsalmon', 'lightseagreen',
+                'lightskyblue', 'lightsteelblue', 'lightyellow', 'lime', 'limegreen',
+                'linen', 'magenta', 'maroon', 'mediumaquamarine', 'mediumblue',
+                'mediumorchid', 'mediumpurple', 'mediumseagreen', 'mediumslateblue',
+                'mediumspringgreen', 'mediumturquoise', 'mediumvioletred', 'midnightblue',
+                'mintcream', 'mistyrose', 'moccasin', 'navajowhite', 'navy', 'oldlace',
+                'olive', 'olivedrab', 'orange', 'orangered', 'orchid', 'palegoldenrod',
+                'palegreen', 'paleturquoise', 'palevioletred', 'papayawhip', 'peachpuff',
+                'peru', 'pink', 'plum', 'powderblue', 'purple', 'rebeccapurple',
+                'red', 'rosybrown', 'royalblue', 'saddlebrown', 'salmon', 'sandybrown',
+                'seagreen', 'seashell', 'sienna', 'silver', 'skyblue', 'slateblue',
+                'slategray', 'snow', 'springgreen', 'steelblue', 'tan', 'teal',
+                'thistle', 'tomato', 'turquoise', 'violet', 'wheat', 'white',
+                'whitesmoke', 'yellow', 'yellowgreen'];
+        var selected_colors = [];
+        var guess_count = 0;
+        var random_color;
+        var random_size = Math.floor(Math.random() * (all_colors.length) + 1);
+        var finished = false;
+
+        function doGame() {
+            selected_colors = selectColor();
+            selected_colors.sort();
+            var selected_colors_text = selected_colors.join(', ');
+
+            random_color = selected_colors[Math.floor(Math.random() * random_size)];
+
+            while (!finished) {
+                var guessed_color = prompt("I am thinking of a color from the following: \n\n" + selected_colors_text + "\n\nWhat is the color?");
+                guess_count += 1;
+                finished = check_guess(guessed_color);
+            }
+        };
+
+        function selectColor() {
+            var shuffled = all_colors.slice(0), i = all_colors.length, temp, index;
+            while (i--) {
+                index = Math.floor((i + 1) * Math.random());
+                temp = shuffled[index];
+                shuffled[index] = shuffled[i];
+                shuffled[i] = temp;
+            }
+            return shuffled.slice(0, random_size);
+        }
+
+        function check_guess(guessed_color) {
+            if (selected_colors.indexOf(guessed_color) == -1) {
+                alert("I don't recognize the color!\n\nPlease enter a color in the list.");
+                return false;
+            }
+            if (guessed_color > random_color) {
+                alert("Your input is alphabetically higher than mine!");
+                return false;
+            }
+            if (guessed_color < random_color) {
+                alert("Your input is alphabetically lower than mine!");
+                return false;
+            }
+            if (guessed_color === random_color) {
+                setBgColor(guessed_color);
+                alert("You got it! The color was " + random_color +
+                      ".\n\nIt took you " + guess_count +
+                      " guesses to get the color!");
+                return true;
+            }
+            alert("It is incorrect, please try again!");
+            return false;
+        }
+
+        function setBgColor(color) {
+            myBody=document.getElementsByTagName("body")[0];
+            myBody.style.background=color;
+        };
+    </script>
+</head>
+    <body onload="doGame()">
+    </body>
+</html>
