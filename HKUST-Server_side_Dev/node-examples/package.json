@@ -1,0 +1,10 @@
+{
+  "name": "testNode",
+  "private": true,
+  "dependencies": {
+    "yargs": "^4.2.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
